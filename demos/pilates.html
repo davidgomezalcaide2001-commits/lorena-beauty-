@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Núcleo · Estudio de pilates reformer (demo)</title>
+<meta name="description" content="Demo de Marejada Estudio: web de estudio de pilates con rejilla bento, horario por días y bonos con tarjetas de doble bisel.">
+<meta name="theme-color" content="#eceee9">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23151714'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23c6f36b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --bg:#eceee9; --bg-2:#e3e6df; --card:#f7f8f5;
+  --ink:#151714; --t2:#3d423b; --t3:#6b7168; --t4:#9aa096;
+  --lime:#c6f36b; --lime-ink:#2b3a07; --clay:#d9775a;
+  --line:rgba(21,23,20,.08);
+  --disp:"Bricolage Grotesque", system-ui, sans-serif; --sans:"Plus Jakarta Sans", system-ui, sans-serif;
+  --spring:cubic-bezier(0.32,0.72,0,1); --out:cubic-bezier(0.16,1,0.3,1);
+  --g:clamp(16px,3.5vw,48px); --R:32px;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 clamp(15px,1.05vw,17px)/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+p{margin:0}
+::selection{background:var(--lime);color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1400px,100%);margin-inline:auto;padding-inline:var(--g)}
+h1,h2,h3{font-family:var(--disp);font-weight:600;margin:0;letter-spacing:-.04em;line-height:.92;font-variation-settings:"opsz" 96}
+h2{font-size:clamp(2.8rem,6.6vw,6.8rem)}
+.pill{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 var(--sans);padding:8px 14px;border-radius:99px;background:var(--card);border:1px solid var(--line);color:var(--t2)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(198,243,107,.35)}
+.demo-tag{position:fixed;right:12px;bottom:12px;z-index:80;font:500 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid var(--line);color:var(--t3);backdrop-filter:blur(8px)}
+
+/* nav isla */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:4px;padding:6px;border-radius:99px;background:rgba(247,248,245,.7);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border:1px solid var(--line);box-shadow:0 12px 40px -16px rgba(21,23,20,.25)}
+.nav__logo{display:flex;align-items:center;gap:8px;padding:0 14px 0 8px;font:700 17px/1 var(--disp);text-decoration:none;letter-spacing:-.03em}
+.nav__logo i{width:22px;height:22px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.nav__logo i::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.nav__links a{font-size:14px;text-decoration:none;padding:10px 14px;border-radius:99px;color:var(--t2);transition:background .25s var(--out)}
+.nav__links a:hover{background:rgba(21,23,20,.05)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--ink);cursor:pointer;position:relative}
+.burger span{position:absolute;left:14px;right:14px;height:1.5px;background:#fff;transition:transform .5s var(--spring)}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:25px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 20px;border-radius:99px;background:var(--ink);color:#fff;text-decoration:none;font:500 14px/1 var(--sans);border:0;cursor:pointer;transition:transform .2s var(--out)}
+.btn:active{transform:scale(.98)}
+.btn i{width:34px;height:34px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;transition:transform .5s var(--spring)}
+.btn:hover i{transform:translate(2px,-2px) scale(1.08)}
+.btn--lg{font-size:16px;padding:8px 8px 8px 26px}
+.btn--lg i{width:44px;height:44px}
+.menu{position:fixed;inset:0;z-index:55;background:rgba(236,238,233,.86);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);display:grid;place-content:center;gap:12px;text-align:center;opacity:0;visibility:hidden;transition:opacity .5s var(--spring),visibility .5s}
+.menu.open{opacity:1;visibility:visible}
+.menu a{font:600 clamp(2.4rem,10vw,4rem)/1.1 var(--disp);letter-spacing:-.04em;text-decoration:none;transform:translateY(30px);opacity:0;transition:transform .7s var(--spring),opacity .7s}
+.menu.open a{transform:none;opacity:1}
+.menu.open a:nth-child(2){transition-delay:.05s}.menu.open a:nth-child(3){transition-delay:.1s}.menu.open a:nth-child(4){transition-delay:.15s}
+@media (max-width:860px){.nav__links,.nav>.btn{display:none}.burger{display:block}.nav{width:calc(100% - 32px);justify-content:space-between}}
+
+/* hero */
+.hero{padding:clamp(120px,16vh,170px) 0 var(--g)}
+.hero__top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.hero__lead{max-width:34ch;color:var(--t2);font-size:clamp(16px,1.3vw,19px)}
+.hero__word{font:700 clamp(5rem,24vw,26rem)/.78 var(--disp);letter-spacing:-.07em;margin:clamp(20px,3vw,40px) 0 clamp(20px,3vw,32px);font-variation-settings:"opsz" 96;white-space:nowrap}
+.hero__word .o{display:inline-block;width:.62em;height:.62em;border-radius:50%;background:var(--lime);vertical-align:baseline;margin:0 .02em}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:minmax(120px,auto);gap:12px}
+.cell{border-radius:var(--R);padding:7px;background:rgba(21,23,20,.04);border:1px solid var(--line)}
+.cell__in{height:100%;border-radius:calc(var(--R) - 7px);background:var(--card);box-shadow:inset 0 1px 1px rgba(255,255,255,.8),0 1px 2px rgba(21,23,20,.04);padding:clamp(20px,2.4vw,32px);display:flex;flex-direction:column;justify-content:space-between;gap:20px;overflow:hidden;position:relative}
+.c-photo{grid-column:span 7;grid-row:span 3}
+.c-stat{grid-column:span 5;grid-row:span 2}
+.c-cta{grid-column:span 5}
+.c-a{grid-column:span 4;grid-row:span 2}
+.c-b{grid-column:span 4;grid-row:span 2}
+.c-c{grid-column:span 4;grid-row:span 2}
+.c-photo .cell__in{padding:0;background:linear-gradient(150deg,#c9cfc2,#8f9887 60%,#5d6657)}
+.c-photo .cell__in::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 60% 40%,rgba(255,255,255,.55),transparent 70%)}
+.c-photo .tagp{position:absolute;left:20px;bottom:20px;font-size:12px;background:rgba(255,255,255,.7);padding:6px 12px;border-radius:99px;backdrop-filter:blur(6px)}
+.c-stat .cell__in{background:var(--ink);color:#fff}
+.big-n{font:700 clamp(4.4rem,9vw,9rem)/.8 var(--disp);letter-spacing:-.06em;color:var(--lime)}
+.c-stat p{color:rgba(255,255,255,.7);max-width:28ch}
+.c-cta .cell__in{background:var(--lime);color:var(--lime-ink);flex-direction:row;align-items:center}
+.c-cta b{font:600 clamp(1.3rem,1.8vw,1.7rem)/1.1 var(--disp);letter-spacing:-.03em}
+.cell h3{font-size:clamp(1.5rem,2vw,2rem)}
+.cell .ico{width:48px;height:48px;border-radius:16px;background:var(--bg);display:grid;place-items:center}
+.cell p.d{color:var(--t3);font-size:15px}
+@media (max-width:900px){.bento{grid-template-columns:1fr}.cell{grid-column:1/-1!important;grid-row:auto!important}.c-photo{min-height:340px}}
+
+/* clases */
+.classes{padding:clamp(96px,12vw,160px) 0}
+.classes__head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,64px)}
+.days{display:flex;gap:6px;padding:6px;border-radius:99px;background:var(--card);border:1px solid var(--line);overflow-x:auto;max-width:100%;scrollbar-width:none}
+.day{border:0;background:none;font:500 14px/1 var(--sans);padding:12px 18px;border-radius:99px;cursor:pointer;color:var(--t2);white-space:nowrap;transition:background .3s var(--out),color .3s}
+.day[aria-selected="true"]{background:var(--ink);color:#fff}
+.slots{display:grid;gap:10px}
+.slot{display:grid;grid-template-columns:110px minmax(0,1fr) auto auto auto;align-items:center;gap:24px;padding:20px 24px;border-radius:24px;background:var(--card);border:1px solid var(--line);transition:transform .4s var(--spring),box-shadow .4s}
+.slot:hover{transform:translateY(-2px);box-shadow:0 18px 40px -24px rgba(21,23,20,.3)}
+.slot time{font:600 26px/1 var(--disp);letter-spacing:-.03em}
+.slot b{font:600 19px/1.2 var(--disp);letter-spacing:-.02em;display:block}
+.slot small{color:var(--t3)}
+.lvl{font-size:12px;padding:6px 12px;border-radius:99px;background:var(--bg);color:var(--t2);white-space:nowrap}
+.spots{font-size:13px;color:var(--t2);white-space:nowrap}
+.spots.low{color:var(--clay);font-weight:600}
+.slot .btn{padding:6px 6px 6px 16px}
+@media (max-width:760px){.slot{grid-template-columns:auto minmax(0,1fr);gap:8px 16px}.slot .lvl,.slot .spots{grid-column:2}.slot .btn{grid-column:1/-1;justify-content:space-between}}
+
+/* bonos */
+.plans{padding:clamp(96px,12vw,160px) 0;background:var(--bg-2)}
+.plans__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:clamp(40px,5vw,64px)}
+.plan .cell__in{padding:clamp(24px,3vw,36px);min-height:440px}
+.plan__n{font:700 clamp(3.4rem,5vw,4.6rem)/1 var(--disp);letter-spacing:-.05em}
+.plan__n small{font:500 15px/1 var(--sans);letter-spacing:0;color:var(--t3);margin-left:4px}
+.plan ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15px;color:var(--t2)}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.5 2.5L13 6.5' fill='none' stroke='%23151714' stroke-width='1.5'/%3E%3C/svg%3E") center no-repeat}
+.plan--hot .cell__in{background:var(--ink);color:#fff}
+.plan--hot ul{color:rgba(255,255,255,.75)}
+.plan--hot li::before{background-color:var(--lime)}
+.plan--hot .plan__n small{color:rgba(255,255,255,.55)}
+.plan .btn{justify-content:space-between}
+.plan--hot .btn{background:var(--lime);color:var(--ink)}
+.plan--hot .btn i{background:var(--ink);color:var(--lime)}
+@media (max-width:900px){.plans__grid{grid-template-columns:1fr}.plan .cell__in{min-height:0}}
+
+/* cierre */
+.end{padding:clamp(110px,15vw,200px) 0 clamp(40px,6vw,64px);text-align:center}
+.end h2{font-size:clamp(3.4rem,11vw,11rem);letter-spacing:-.06em}
+.end h2 span{color:var(--t4)}
+.end .btn{margin-top:40px}
+.end__foot{margin-top:clamp(80px,10vw,140px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--t3);border-top:1px solid var(--line);padding-top:24px;text-align:left}
+
+.js [data-up]{opacity:0;transform:translateY(64px);filter:blur(12px)}
+@media (prefers-reduced-motion:reduce){.js [data-up]{opacity:1;transform:none;filter:none}.menu a,.burger span{transition:none}}
+</style>
+</head>
+<body>
+<span class="demo-tag">Demo ficticia · Marejada Estudio</span>
+<nav class="nav" aria-label="Principal">
+  <a class="nav__logo" href="#top"><i aria-hidden="true"></i>Núcleo</a>
+  <div class="nav__links"><a href="#estudio">Estudio</a><a href="#clases">Clases</a><a href="#bonos">Bonos</a></div>
+  <a class="btn" href="#clases">Reservar clase <i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a>
+  <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+</nav>
+<div class="menu" id="menu"><a href="#estudio">Estudio</a><a href="#clases">Clases</a><a href="#bonos">Bonos</a><a href="#clases">Reservar</a></div>
+
+<main>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero__top">
+      <span class="pill">Reformer · grupos de 6 · desde las 7:00</span>
+      <p class="hero__lead">Pilates reformer en grupos pequeños para que cada repetición cuente. Fuerza desde el centro, sin postureo.</p>
+    </div>
+    <h1 class="hero__word" data-word aria-label="Núcleo">Núcle<span class="o" aria-hidden="true"></span></h1>
+    <div class="bento" id="estudio">
+      <div class="cell c-photo" data-up><div class="cell__in"><span class="tagp">Foto: sala de reformers con luz natural</span></div></div>
+      <div class="cell c-stat" data-up><div class="cell__in"><span class="pill" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.12)">Máximo por clase</span><div><div class="big-n" data-count="6">6</div><p style="margin-top:14px">personas por sesión. El instructor te corrige a ti, no a una sala.</p></div></div></div>
+      <div class="cell c-cta" data-up><div class="cell__in"><b>Primera clase de prueba con precio reducido</b><a class="btn" href="#clases">Probar <i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a></div></div>
+      <div class="cell c-a" data-up><div class="cell__in"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><div><h3>Reformer</h3><p class="d" style="margin-top:8px">Resistencia con muelles para tonificar sin impacto.</p></div></div></div>
+      <div class="cell c-b" data-up><div class="cell__in"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 17c3-6 6-6 9 0s6 6 9 0"/></svg></span><div><h3>Mat y suelo</h3><p class="d" style="margin-top:8px">Control, respiración y movilidad. Perfecto para empezar.</p></div></div></div>
+      <div class="cell c-c" data-up><div class="cell__in"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18"/></svg></span><div><h3>Privadas</h3><p class="d" style="margin-top:8px">Sesiones 1:1 para lesiones, embarazo o puesta a punto.</p></div></div></div>
+    </div>
+  </div>
+</header>
+
+<section class="classes" id="clases" aria-labelledby="t-cl">
+  <div class="wrap">
+    <div class="classes__head">
+      <h2 id="t-cl" data-up>Clases de<br>esta semana</h2>
+      <div class="days" role="tablist" aria-label="Día" id="days"></div>
+    </div>
+    <div class="slots" id="slots" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="plans" id="bonos" aria-labelledby="t-bo">
+  <div class="wrap">
+    <h2 id="t-bo" data-up>Bonos claros,<br>sin permanencia.</h2>
+    <div class="plans__grid">
+      <div class="cell plan" data-up><div class="cell__in"><div><span class="pill">Para probar</span><p class="plan__n" style="margin-top:28px">4<small>clases / mes</small></p></div><ul><li>Reformer o mat</li><li>Reserva desde la web</li><li>Cancelación hasta 12 h antes</li></ul><a class="btn" href="#clases">Elegir <i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a></div></div>
+      <div class="cell plan plan--hot" data-up><div class="cell__in"><div><span class="pill" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.12)">El más elegido</span><p class="plan__n" style="margin-top:28px">8<small>clases / mes</small></p></div><ul><li>Dos clases por semana</li><li>Valoración postural inicial</li><li>Cancelación hasta 6 h antes</li><li>Congelable en vacaciones</li></ul><a class="btn" href="#clases">Elegir <i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a></div></div>
+      <div class="cell plan" data-up><div class="cell__in"><div><span class="pill">Sin límite</span><p class="plan__n" style="margin-top:28px">∞<small>clases / mes</small></p></div><ul><li>Todas las clases de grupo</li><li>Una privada al trimestre</li><li>Prioridad en lista de espera</li></ul><a class="btn" href="#clases">Elegir <i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="end" aria-labelledby="t-end">
+  <div class="wrap">
+    <h2 id="t-end" data-up>Empieza por <span>el</span><br>centro.</h2>
+    <a class="btn btn--lg" href="#clases">Reservar mi primera clase <i aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a>
+    <div class="end__foot"><span>Núcleo · estudio de pilates (nombre y datos de ejemplo)</span><span>L–V 7:00–21:30 · S 9:00–13:00</span><span>Demo de Marejada Estudio</span></div>
+  </div>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  /* menú */
+  const burger = $('.burger'), menu = $('#menu');
+  const toggle = o => { burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? 'Cerrar menú' : 'Abrir menú'); menu.classList.toggle('open', o); };
+  burger.addEventListener('click', () => toggle(burger.getAttribute('aria-expanded') !== 'true'));
+  $$('a', menu).forEach(a => a.addEventListener('click', () => toggle(false)));
+  addEventListener('keydown', e => e.key === 'Escape' && toggle(false));
+
+  /* horario */
+  const names = ['Lun','Mar','Mié','Jue','Vie','Sáb'];
+  const base = [['07:00','Reformer Flow','Todos los niveles',6],['09:30','Mat Esencial','Iniciación',8],['13:15','Reformer Express · 40 min','Intermedio',6],['18:30','Reformer Fuerza','Intermedio',6],['20:00','Reformer Stretch','Todos los niveles',6]];
+  const daysEl = $('#days'), slotsEl = $('#slots');
+  const today = Math.min(5, Math.max(0, (new Date().getDay() + 6) % 7));
+  daysEl.innerHTML = names.map((n, i) => `<button class="day" role="tab" aria-selected="${i === today}" tabindex="${i === today ? 0 : -1}" data-i="${i}">${n}</button>`).join('');
+  function render(i) {
+    const list = i === 5 ? [['09:30','Mat Esencial','Iniciación',8],['11:00','Reformer Flow','Todos los niveles',6]] : base;
+    slotsEl.innerHTML = list.map((s, k) => {
+      const left = (i * 3 + k * 5) % (s[3] + 1);
+      const txt = left === 0 ? 'Completa · lista de espera' : left <= 2 ? `Quedan ${left}` : `${left} plazas`;
+      return `<div class="slot"><time>${s[0]}</time><div><b>${s[1]}</b><small>Sala ${k % 2 ? 'Luz' : 'Patio'} · 50 min</small></div><span class="lvl">${s[2]}</span><span class="spots ${left <= 2 ? 'low' : ''}">${txt}</span><a class="btn" href="#clases" aria-label="${left === 0 ? 'Apuntarme a la lista de espera' : 'Reservar'} ${s[1]} a las ${s[0]}">${left === 0 ? 'Avisarme' : 'Reservar'} <i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a></div>`;
+    }).join('');
+    if (window.gsap && !reduce) gsap.from('.slot', { y: 18, opacity: 0, duration: .5, stagger: .05, ease: 'power3.out' });
+  }
+  const days = $$('.day');
+  days.forEach((b, i) => {
+    b.addEventListener('click', () => { days.forEach(x => { x.setAttribute('aria-selected', x === b); x.tabIndex = x === b ? 0 : -1; }); render(i); });
+    b.addEventListener('keydown', e => { if (!['ArrowRight','ArrowLeft'].includes(e.key)) return; const n = days[(i + (e.key === 'ArrowRight' ? 1 : days.length - 1)) % days.length]; n.click(); n.focus(); });
+  });
+  render(today);
+
+  if (!window.gsap || reduce) { document.documentElement.classList.remove('js'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  // Palabra gigante: entra letra a letra y el punto "late"
+  const word = $('[data-word]');
+  const nodes = [...word.childNodes]; word.textContent = '';
+  nodes.forEach(n => { if (n.nodeType === 3) [...n.textContent].forEach(ch => { const s = document.createElement('span'); s.textContent = ch; s.style.display = 'inline-block'; s.setAttribute('aria-hidden','true'); word.append(s); }); else word.append(n); });
+  gsap.from(word.children, { yPercent: 100, opacity: 0, duration: 1.1, stagger: .06, ease: 'power4.out', delay: .1 });
+  gsap.from('.hero__word .o', { scale: 0, duration: 1.2, ease: 'back.out(1.6)', delay: .55 });
+  gsap.to(word, { xPercent: -8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  ScrollTrigger.batch('[data-up]', { start: 'top 90%', once: true, onEnter: b => gsap.to(b, { opacity: 1, y: 0, filter: 'blur(0px)', duration: .9, stagger: .08, ease: 'expo.out' }) });
+  $$('[data-count]').forEach(el => { const o = { v: 0 }; gsap.to(o, { v: +el.dataset.count, duration: 1.4, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true }, onUpdate: () => el.textContent = Math.round(o.v) }); });
+  addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
