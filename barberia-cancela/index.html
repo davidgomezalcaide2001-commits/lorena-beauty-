@@ -10,6 +10,7 @@
 <meta property="og:title" content="Barbería Cancela · Rincón de la Victoria">
 <meta property="og:description" content="Pasa, que está abierta. Corte, barba y afeitado en Calle Ronda 30.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://barberia-cancela.vercel.app/img/local.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230e0d0c'/%3E%3Cg fill='none' stroke='%23c19a55' stroke-width='3'%3E%3Cpath d='M16 56V24a16 16 0 0 1 32 0v32M32 8v48M16 36h32'/%3E%3Ccircle cx='24' cy='46' r='4'/%3E%3Ccircle cx='40' cy='46' r='4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,12 +77,8 @@ html:not(.js) .pre{display:none}
 .hero{position:relative;height:100dvh;min-height:600px;overflow:hidden;background:var(--ink-2)}
 .hero__bg{position:absolute;inset:0}
 /* FOTO REAL: interior de la barbería, sillón y espejo (sustituir el degradado por <img>) */
-.hero__bg::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(40% 50% at 50% 38%,rgba(224,189,122,.38),transparent 70%),
-  radial-gradient(70% 60% at 50% 110%,rgba(142,43,34,.45),transparent 70%),
-  linear-gradient(180deg,#2a221a,#14110e 70%)}
-.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,12,.2),rgba(14,13,12,.75))}
-.hero__ph{position:absolute;left:50%;top:22%;transform:translateX(-50%);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--t4);z-index:1;white-space:nowrap}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:saturate(.9) contrast(1.05)}
+.hero__bg::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 40%,rgba(14,13,12,.05),rgba(14,13,12,.55)),linear-gradient(180deg,rgba(14,13,12,.35) 0%,rgba(14,13,12,.15) 35%,rgba(14,13,12,.88) 100%)}
 .hero__in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(36px,7vh,80px)}
 .hero h1{font-size:clamp(5rem,21vw,23rem);line-height:.8;letter-spacing:-.02em}
 .hero h1 .it{display:block;font-size:.28em;margin:0 0 .1em .05em;color:var(--brass-2)}
@@ -151,6 +148,8 @@ html:not(.js) .pre{display:none}
 .ph{position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:16px;background:linear-gradient(160deg,#3a2c20,#15110d);color:var(--t2);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .ph::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 40%,rgba(224,189,122,.28),transparent 70%)}
 .ph::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.ph--img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph--img::before{display:none}
 .ph span{position:relative;z-index:1;background:rgba(14,13,12,.55);padding:6px 10px;border-radius:99px}
 .shot:nth-child(2) .ph{background:linear-gradient(160deg,#4a1d18,#140d0b)}
 .shot:nth-child(4) .ph{background:linear-gradient(160deg,#2f2a22,#0f0e0c)}
@@ -217,8 +216,7 @@ html:not(.js) .pre{display:none}
 
 <main id="main">
 <header class="hero" id="top" data-hero>
-  <div class="hero__bg" data-hero-bg></div>
-  <span class="hero__ph" aria-hidden="true">[Foto: interior de la barbería]</span>
+  <div class="hero__bg" data-hero-bg><img class="hero__img" src="img/local.webp" srcset="img/local-m.webp 1000w, img/local.webp 1993w" sizes="100vw" alt="Interior de Barbería Cancela: sillones de barbero, madera y azulejo blanco" fetchpriority="high" decoding="async"></div>
   <div class="wrap hero__in">
     <h1 data-hero-title><span class="it">Barbería</span>Cancela</h1>
     <div class="hero__row">
@@ -280,7 +278,7 @@ html:not(.js) .pre{display:none}
     <figure class="shot" style="margin:0"><div class="ph"><span>[Foto: degradado]</span></div><figcaption><span>Degradado</span><span>01</span></figcaption></figure>
     <figure class="shot" style="margin:0"><div class="ph"><span>[Foto: barba perfilada]</span></div><figcaption><span>Barba</span><span>02</span></figcaption></figure>
     <figure class="shot" style="margin:0"><div class="ph"><span>[Foto: afeitado a navaja]</span></div><figcaption><span>Afeitado</span><span>03</span></figcaption></figure>
-    <figure class="shot" style="margin:0"><div class="ph"><span>[Foto: el local]</span></div><figcaption><span>El local</span><span>04</span></figcaption></figure>
+    <figure class="shot" style="margin:0"><div class="ph ph--img"><img src="img/local-m.webp" alt="El local de Barbería Cancela" loading="lazy" decoding="async"></div><figcaption><span>El local</span><span>04</span></figcaption></figure>
     <figure class="shot" style="margin:0"><div class="ph"><span>[Foto: corte clásico]</span></div><figcaption><span>Clásico</span><span>05</span></figcaption></figure>
   </div>
 </section>
@@ -433,7 +431,7 @@ html:not(.js) .pre{display:none}
   const title = $('[data-hero-title]'); split(title);
   gsap.set(title.querySelectorAll('.w'), { yPercent: 130 });
   gsap.set('[data-hero-bg]', { scale: 1.15 });
-  gsap.set('.hero__row, .hero__ph', { autoAlpha: 0 });
+  gsap.set('.hero__row', { autoAlpha: 0 });
 
   /* preloader */
   const pre = $('[data-preloader]');
@@ -445,16 +443,15 @@ html:not(.js) .pre{display:none}
   setTimeout(() => pre.isConnected && pre.remove(), 3000);
 
   const reveal = () => { gsap.to(title.querySelectorAll('.w'), { yPercent: 0, duration: 1.1, stagger: .08, ease: 'power4.out' });
-    gsap.to('.hero__row, .hero__ph', { autoAlpha: 1, duration: .9, delay: .35, ease: 'power2.out' }); };
+    gsap.to('.hero__row', { autoAlpha: 1, duration: .9, delay: .35, ease: 'power2.out' }); };
 
   /* LA CANCELA SE ABRE (el momento wow) */
   ScrollTrigger.matchMedia({
     '(min-width: 821px)': () => {
       let shown = false;
       const tl = gsap.timeline({ scrollTrigger: { trigger: '[data-hero]', start: 'top top', end: '+=130%', pin: true, scrub: 1.1, anticipatePin: 1,
-        onUpdate: s => { if (s.progress > .35 && !shown) { shown = true; reveal(); } } } });
-      tl.to('.gate__hint, .gate__sign', { autoAlpha: 0, duration: .15 }, 0)
-        .to(L, { rotateY: -88, ease: 'power2.inOut', duration: 1 }, 0)
+        onUpdate: s => { gsap.to('.gate__hint, .gate__sign', { autoAlpha: s.progress > .02 ? 0 : 1, duration: .3, overwrite: 'auto' }); if (s.progress > .35 && !shown) { shown = true; reveal(); } } } });
+      tl.to(L, { rotateY: -88, ease: 'power2.inOut', duration: 1 }, 0)
         .to(R, { rotateY: 88, ease: 'power2.inOut', duration: 1 }, 0)
         .to('[data-hero-bg]', { scale: 1, ease: 'none', duration: 1 }, 0)
         .set('[data-gate]', { display: 'none' });
