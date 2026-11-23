@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taberna Esquina de Miguel · Pescaíto frito en Rincón de la Victoria</title>
+<meta name="description" content="Taberna Esquina de Miguel, Calle Ronda 12, Rincón de la Victoria (Málaga). Pescaíto frito, género de lonja y tapas. Local pequeño: llama y reserva.">
+<meta name="robots" content="noindex"><!-- PROPUESTA: quitar noindex cuando el cliente acepte -->
+<meta name="theme-color" content="#f2efe7">
+<meta property="og:title" content="Taberna Esquina de Miguel · Rincón de la Victoria">
+<meta property="og:description" content="El pescaíto, como se fríe en Málaga. Calle Ronda 12.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f2efe7'/%3E%3Cpath d='M14 14h36v8H22v28h-8z' fill='%23c7322e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Taberna Esquina de Miguel","servesCuisine":["Pescado frito","Tapas","Cocina malagueña"],"telephone":"+34952404634","acceptsReservations":"True",
+"address":{"@type":"PostalAddress","streetAddress":"Calle Ronda, 12","postalCode":"29730","addressLocality":"Rincón de la Victoria","addressRegion":"Málaga","addressCountry":"ES"},
+"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"12:00","closes":"16:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Thursday","Friday","Saturday"],"opens":"20:00","closes":"23:30"}]}
+</script>
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --paper:#f2efe7; --paper-2:#e9e4d8; --ink:#1a1a1a; --ink-2:#3b3a36; --ink-3:#6c695f; --ink-4:#9a958a;
+  --red:#c7322e; --red-2:#a92823; --olive:#5e6347; --slate:#1f2420; --slate-2:#2a302b; --chalk:#ece8dc;
+  --line:#c8c2b0; --line-soft:rgba(26,26,26,.1);
+  --serif:"Gloock", Georgia, serif; --sans:"Hanken Grotesk", system-ui, sans-serif;
+  --out:cubic-bezier(0.16,1,0.3,1); --g:clamp(16px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 clamp(16px,1.08vw,18px)/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit} p{margin:0}
+::selection{background:var(--red);color:var(--paper)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--ink);color:var(--paper);padding:10px 16px}
+.skip:focus{left:8px}
+.wrap{width:min(1320px,100%);margin-inline:auto;padding-inline:var(--g)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.025em;line-height:.92}
+h2{font-size:clamp(2.8rem,7vw,7rem)}
+em{font-style:italic;color:var(--red)}
+.kicker{font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.06;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.proposal{position:fixed;left:12px;bottom:12px;z-index:80;font:600 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border-radius:99px;background:rgba(242,239,231,.85);border:1px solid var(--line);color:var(--ink-3);backdrop-filter:blur(6px)}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px var(--g);transition:background .4s,transform .5s var(--out);}
+.nav.solid{background:rgba(242,239,231,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.nav.is-hidden{transform:translateY(-100%)}
+.nav__logo{font:400 22px/1 var(--serif);text-decoration:none;letter-spacing:-.02em}
+.nav__logo em{font-size:.9em}
+.nav__links{display:flex;gap:28px;font-size:14px}
+.nav__links a{text-decoration:none;color:var(--ink-2);position:relative}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--out)}
+.nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:99px;font:600 15px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .2s var(--out),background .3s,color .3s}
+.btn:active{transform:scale(.98)}
+.btn--red{background:var(--red);color:#fff}
+.btn--red:hover{background:var(--red-2)}
+.btn--line{border:1px solid var(--ink);color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:var(--paper)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:14px}
+@media (max-width:820px){.nav__links{display:none}}
+
+/* HERO: la esquina */
+.hero{min-height:100dvh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,64px);align-items:end;padding:120px var(--g) clamp(32px,6vh,64px);position:relative}
+.corner{position:relative;display:inline-block;padding:0 clamp(70px,7.5vw,120px) 0 0}
+.corner__h{font-size:clamp(4.2rem,11.5vw,12rem);line-height:.8;letter-spacing:-.045em}
+.corner__v{position:absolute;right:0;top:0;bottom:0;writing-mode:vertical-rl;white-space:nowrap;font:italic 400 clamp(1.9rem,4.2vw,4.4rem)/1 var(--serif);color:var(--red);letter-spacing:-.02em;display:flex;align-items:flex-end}
+.corner__rule{position:absolute;left:0;right:clamp(70px,7.5vw,120px);bottom:-18px;height:2px;background:var(--ink);transform-origin:left}
+.corner__rule-v{position:absolute;right:clamp(58px,6.3vw,104px);top:0;bottom:-18px;width:2px;background:var(--ink);transform-origin:bottom}
+.hero__lead{margin-top:56px;font:italic 400 clamp(1.3rem,2vw,1.8rem)/1.3 var(--serif);max-width:24ch;color:var(--ink-2)}
+.hero__ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.hero__note{margin-top:18px;font-size:14px;color:var(--ink-3)}
+.plate{display:inline-flex;align-items:center;gap:14px;margin-top:32px;padding:10px 18px 10px 12px;border:2px solid #1d3a7a;border-radius:6px;background:#f7f5ef;color:#1d3a7a;font:600 13px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.plate b{display:grid;place-items:center;width:38px;height:38px;border-radius:4px;background:#1d3a7a;color:#f7f5ef;font:400 20px/1 var(--serif);letter-spacing:0}
+.hero__media{position:relative;align-self:stretch;min-height:420px;overflow:hidden;border-radius:2px}
+.ph{position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 55%,rgba(232,170,90,.55),transparent 70%),linear-gradient(170deg,#d8b98a,#8a5a2e 55%,#3b2616);display:flex;align-items:flex-end;padding:18px;color:rgba(255,255,255,.9);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.ph::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.ph span{position:relative;z-index:1}
+@media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:100px}.hero__media{min-height:300px;order:-1}.corner{padding-right:0;display:block}.corner__h{font-size:clamp(4.4rem,22vw,8rem)}.corner__v{position:static;writing-mode:horizontal-tb;display:block;font-size:clamp(2rem,10vw,3.4rem);margin-top:4px}.corner__rule{right:0;bottom:-14px}.corner__rule-v{display:none}.hero__lead{margin-top:44px}}
+
+/* franja */
+.strip{background:var(--red);color:var(--paper);overflow:hidden;padding:14px 0}
+.strip__t{display:flex;width:max-content;animation:m 40s linear infinite}
+.strip span{font:italic 400 clamp(20px,2.4vw,30px)/1 var(--serif);white-space:nowrap;padding-right:40px;display:flex;align-items:center;gap:40px}
+.strip span::after{content:"";width:8px;height:8px;background:var(--paper);transform:rotate(45deg)}
+@keyframes m{to{transform:translateX(-50%)}}
+
+/* la casa: texto a dos columnas estilo editorial */
+.casa{padding:clamp(100px,14vw,190px) 0}
+.casa__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,100px)}
+.casa__cols{columns:2;column-gap:48px;column-rule:1px solid var(--line);color:var(--ink-2)}
+.casa__cols p{margin-bottom:1em;break-inside:avoid}
+.casa__cols p:first-child::first-letter{font:400 4.2em/.8 var(--serif);float:left;margin:.06em .08em 0 0;color:var(--red)}
+.casa__quote{margin-top:48px;padding-top:28px;border-top:1px solid var(--line);font:italic 400 clamp(1.5rem,2.6vw,2.4rem)/1.2 var(--serif)}
+.casa__quote small{display:block;margin-top:14px;font:500 13px/1.4 var(--sans);font-style:normal;color:var(--ink-3)}
+@media (max-width:900px){.casa__grid{grid-template-columns:1fr}.casa__cols{columns:1}}
+
+/* la pizarra (wow) */
+.board{background:var(--slate);color:var(--chalk);padding:clamp(100px,13vw,180px) 0;position:relative;overflow:hidden}
+.board::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 30% 20%,rgba(255,255,255,.06),transparent 60%),radial-gradient(60% 50% at 80% 90%,rgba(255,255,255,.04),transparent 60%);pointer-events:none}
+.board .kicker{color:#e8a39f}
+.board h2 em{color:#f0c9a0}
+.board__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:start;position:relative}
+.board__intro{color:rgba(236,232,220,.75);margin-top:28px;max-width:40ch}
+.slate{border:10px solid #5a3e25;border-radius:4px;background:linear-gradient(160deg,#2b322c,#1d221e);padding:clamp(24px,4vw,48px);box-shadow:inset 0 0 60px rgba(0,0,0,.45),0 30px 60px -30px rgba(0,0,0,.6)}
+.slate__title{font:italic 400 clamp(1.8rem,3vw,2.6rem)/1 var(--serif);display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed rgba(236,232,220,.3);padding-bottom:16px;margin-bottom:8px}
+.slate__title small{font:500 12px/1 var(--sans);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,232,220,.55)}
+.slate ul{list-style:none;margin:0;padding:0}
+.slate li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px dashed rgba(236,232,220,.14)}
+.slate li b{font:400 clamp(1.3rem,2vw,1.7rem)/1.15 var(--serif);font-weight:400}
+.slate li span{font-variant-numeric:tabular-nums;color:#f0c9a0;font-size:15px}
+.slate li i{grid-column:1/-1;font-size:14px;color:rgba(236,232,220,.55);font-style:normal}
+.slate__foot{margin-top:18px;font-size:13px;color:rgba(236,232,220,.5)}
+.chalk{clip-path:inset(0 100% 0 0)}
+html:not(.js) .chalk{clip-path:none}
+@media (max-width:900px){.board__grid{grid-template-columns:1fr}}
+
+/* visita */
+.visit{padding:clamp(100px,13vw,180px) 0}
+.visit__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);margin-top:clamp(40px,5vw,64px)}
+.info>div{padding:22px 0;border-top:1px solid var(--line)}
+.info h3{font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+.info .big{font:400 clamp(1.6rem,2.6vw,2.4rem)/1.15 var(--serif);text-decoration:none}
+.info a.big:hover{color:var(--red)}
+.hours{list-style:none;margin:0;padding:0;font-size:15px}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dotted var(--line);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.hours li.today{color:var(--ink);font-weight:600}
+.hours li.today span:first-child::after{content:" · hoy";color:var(--red)}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:13px;padding:7px 12px;border-radius:99px;background:var(--paper-2)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink-4)}
+.status.open::before{background:#3f9a5a;box-shadow:0 0 0 4px rgba(63,154,90,.18)}
+.map{min-height:440px;border:1px solid var(--line);background:var(--paper-2)}
+.map iframe{width:100%;height:100%;min-height:440px;border:0;filter:sepia(.35) saturate(.8) contrast(.95)}
+@media (max-width:900px){.visit__grid{grid-template-columns:1fr}}
+
+/* final */
+.end{background:var(--ink);color:var(--paper);padding:clamp(110px,15vw,210px) 0 calc(40px + env(safe-area-inset-bottom));overflow:hidden}
+.end__big{font:400 clamp(4rem,14vw,14rem)/.85 var(--serif);letter-spacing:-.045em}
+.end__big em{color:#f0a19c}
+.end__row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:48px}
+.end__row p{max-width:34ch;color:rgba(242,239,231,.7)}
+.end .btn--line{border-color:rgba(242,239,231,.4);color:var(--paper)}
+.end .btn--line:hover{background:var(--paper);color:var(--ink)}
+.end__foot{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:clamp(80px,10vw,140px);padding-top:22px;border-top:1px solid rgba(242,239,231,.14);font-size:13px;color:rgba(242,239,231,.5)}
+.end__foot a{text-decoration:none}
+
+.mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:70;display:none;grid-template-columns:1.3fr 1fr 1fr;gap:6px;padding:6px;border-radius:18px;background:rgba(26,26,26,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.mbar a{display:grid;place-items:center;min-height:50px;border-radius:13px;text-decoration:none;font:600 14px/1 var(--sans);color:var(--paper)}
+.mbar a:first-child{background:var(--red)}
+@media (max-width:820px){.mbar{display:grid}.end{padding-bottom:120px}.proposal{display:none}}
+
+.w-mask{display:inline-block;overflow:hidden;vertical-align:top;padding:.14em 0 .06em;margin:-.14em 0 -.06em}
+.w{display:inline-block}
+.js [data-reveal]{opacity:0;transform:translateY(30px)}
+@media (prefers-reduced-motion:reduce){.js [data-reveal]{opacity:1;transform:none}.chalk{clip-path:none}.strip__t{animation:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<span class="proposal">Propuesta de Marejada Estudio</span>
+
+<nav class="nav" data-nav aria-label="Principal">
+  <a class="nav__logo" href="#top">Esquina <em>de Miguel</em></a>
+  <div class="nav__links"><a href="#casa">La casa</a><a href="#pizarra">La pizarra</a><a href="#visita">Horario</a></div>
+  <a class="btn btn--red" href="tel:+34952404634">Reservar</a>
+</nav>
+
+<main id="main">
+<header class="hero" id="top">
+  <div>
+    <div class="corner">
+      <h1 class="corner__h" data-hero-h aria-label="Taberna Esquina de Miguel">Esquina</h1>
+      <span class="corner__v" aria-hidden="true" data-hero-v>de Miguel</span>
+      <span class="corner__rule" aria-hidden="true" data-rule></span>
+      <span class="corner__rule-v" aria-hidden="true" data-rule-v></span>
+    </div>
+    <p class="hero__lead" data-hero-in>El pescaíto, como se fríe en Málaga. En una esquina de Calle Ronda.</p>
+    <div class="hero__ctas" data-hero-in>
+      <a class="btn btn--red" href="tel:+34952404634">Llamar y reservar</a>
+      <a class="btn btn--line" href="#pizarra">Ver la pizarra</a>
+    </div>
+    <p class="hero__note" data-hero-in>Local pequeño: mejor reservar. <span class="status" data-status style="margin:0 0 0 6px">Horario</span></p>
+    <div class="plate" data-hero-in aria-label="Calle Ronda, 12"><b>12</b>Calle Ronda · Rincón de la Victoria</div>
+  </div>
+  <div class="hero__media" data-hero-media>
+    <!-- FOTO REAL: fritura recién salida, en la barra (sustituir .ph por <img>) -->
+    <div class="ph"><span>[Foto: fritura recién salida, en la barra]</span></div>
+  </div>
+</header>
+
+<div class="strip" aria-label="Pescaíto frito, género de lonja, local pequeño, Calle Ronda 12">
+  <div class="strip__t" aria-hidden="true">
+    <span>Pescaíto frito</span><span>Género de lonja</span><span>Local pequeño, mejor reservar</span><span>Calle Ronda, 12</span>
+    <span>Pescaíto frito</span><span>Género de lonja</span><span>Local pequeño, mejor reservar</span><span>Calle Ronda, 12</span>
+  </div>
+</div>
+
+<section class="casa" id="casa" aria-labelledby="t-casa">
+  <div class="wrap casa__grid">
+    <div><p class="kicker">La casa</p><h2 id="t-casa" data-split style="margin-top:20px">Freír bien es <em>un oficio.</em></h2></div>
+    <div>
+      <div class="casa__cols" data-reveal>
+        <p>En Esquina de Miguel el pescado manda. Llega de lonja, se enharina al momento y sale de la sartén crujiente por fuera y jugoso por dentro, como se ha hecho toda la vida en la costa de Málaga.</p>
+        <p>Es una taberna pequeña, de las de barra y pocas mesas, donde se viene a compartir unos platos con calma. Por eso conviene llamar antes: los días buenos se llena.</p>
+      </div>
+      <!-- Sustituir por 1 reseña real copiada literalmente de Google/Tripadvisor, con nombre de pila -->
+      <p class="casa__quote" data-reveal>Lo que más repiten quienes vienen: la fritura del pescado, la calidad del género y el trato.<small>Resumen de opiniones en Tripadvisor · 4,5 sobre 5 (cifra a confirmar)</small></p>
+    </div>
+  </div>
+</section>
+
+<section class="board" id="pizarra" aria-labelledby="t-board" data-board>
+  <div class="wrap board__grid">
+    <div>
+      <p class="kicker">La pizarra</p>
+      <h2 id="t-board" data-split style="margin-top:20px">Lo que trae <em>la lonja.</em></h2>
+      <p class="board__intro" data-reveal>La carta cambia según el mar. Aquí se apunta cada semana lo que hay, para que sepas a qué vienes antes de llamar.</p>
+    </div>
+    <!-- PIZARRA EDITABLE: Marejada la actualiza cada semana (incluido en la cuota mensual). Platos y precios pendientes de confirmar con Miguel. -->
+    <div class="slate" data-slate>
+      <p class="slate__title chalk"><span>Esta semana</span><small>[fecha]</small></p>
+      <ul>
+        <li class="chalk"><b>[Plato de fritura 1]</b><span>[€]</span><i>Pendiente de confirmar con la casa</i></li>
+        <li class="chalk"><b>[Plato de fritura 2]</b><span>[€]</span><i>Pendiente de confirmar con la casa</i></li>
+        <li class="chalk"><b>[Pescado del día]</b><span>[€]</span><i>Según lonja</i></li>
+        <li class="chalk"><b>[Tapa de la casa]</b><span>[€]</span><i>Pendiente de confirmar con la casa</i></li>
+      </ul>
+      <p class="slate__foot chalk">Pregunta en barra por lo que haya fuera de pizarra.</p>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visita" aria-labelledby="t-vis">
+  <div class="wrap">
+    <p class="kicker">Horario y cómo llegar</p>
+    <h2 id="t-vis" data-split style="margin-top:20px">Calle Ronda, <em>12.</em></h2>
+    <div class="visit__grid">
+      <div class="info" data-reveal>
+        <div><h3>Dirección</h3><a class="big" href="https://www.google.com/maps/search/?api=1&query=Taberna+Esquina+de+Miguel+Calle+Ronda+12+Rinc%C3%B3n+de+la+Victoria" target="_blank" rel="noopener">Calle Ronda, 12<br>29730 Rincón de la Victoria</a></div>
+        <div><h3>Reservas</h3><a class="big" href="tel:+34952404634">952 40 46 34</a></div>
+        <div><h3>Horario</h3>
+          <!-- HORARIO: datos de directorios, confirmar con la casa -->
+          <ul class="hours" id="hours">
+            <li data-d="1"><span>Lunes</span><span>Cerrado</span></li>
+            <li data-d="2"><span>Martes</span><span>12:00–16:30</span></li>
+            <li data-d="3"><span>Miércoles</span><span>12:00–16:30</span></li>
+            <li data-d="4"><span>Jueves</span><span>12:00–16:30 · 20:00–23:30</span></li>
+            <li data-d="5"><span>Viernes</span><span>12:00–16:30 · 20:00–23:30</span></li>
+            <li data-d="6"><span>Sábado</span><span>12:00–16:30 · 20:00–23:30</span></li>
+            <li data-d="0"><span>Domingo</span><span>Cerrado</span></li>
+          </ul>
+          <span class="status" data-status>Comprobando…</span>
+        </div>
+      </div>
+      <div class="map" data-reveal>
+        <iframe title="Mapa de Taberna Esquina de Miguel, Calle Ronda 12" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Taberna%20Esquina%20de%20Miguel%2C%20Calle%20Ronda%2012%2C%20Rinc%C3%B3n%20de%20la%20Victoria&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p class="end__big">¿Una de<br><em>pescaíto?</em></p>
+    <div class="end__row">
+      <p>Llama, pide mesa y vente a la esquina de Calle Ronda. Que el aceite ya está caliente.</p>
+      <div class="hero__ctas" style="margin:0">
+        <a class="btn btn--red" href="tel:+34952404634">952 40 46 34</a>
+        <a class="btn btn--line" href="https://www.google.com/maps/search/?api=1&query=Taberna+Esquina+de+Miguel+Calle+Ronda+12+Rinc%C3%B3n+de+la+Victoria" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+    </div>
+    <div class="end__foot">
+      <span>Taberna Esquina de Miguel · Calle Ronda, 12 · 29730 Rincón de la Victoria, Málaga</span>
+      <a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a>
+      <span>Web por Marejada Estudio</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Acciones rápidas">
+  <a href="tel:+34952404634">Reservar</a>
+  <a href="#pizarra">Pizarra</a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Taberna+Esquina+de+Miguel+Calle+Ronda+12+Rinc%C3%B3n+de+la+Victoria" target="_blank" rel="noopener">Llegar</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+  /* Horario (hora de Madrid) */
+  const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Madrid' }));
+  const d = now.getDay(), m = now.getHours() * 60 + now.getMinutes();
+  $$('#hours li').forEach(li => li.classList.toggle('today', +li.dataset.d === d));
+  const lunch = [720, 990], dinner = [1200, 1410];
+  const ranges = d === 0 || d === 1 ? [] : d >= 4 ? [lunch, dinner] : [lunch];
+  const open = ranges.some(([a, b]) => m >= a && m < b);
+  let txt;
+  if (open) txt = 'Abierto ahora · cierra a las ' + (m < 990 ? '16:30' : '23:30');
+  else if (ranges.length && m < 720) txt = 'Cerrado · abre hoy a las 12:00';
+  else if (d >= 4 && m >= 990 && m < 1200) txt = 'Cerrado · abre a las 20:00';
+  else if (d === 6 || d === 0) txt = 'Cerrado · abre el martes a las 12:00';
+  else if (d === 1) txt = 'Cerrado · abre mañana a las 12:00';
+  else txt = 'Cerrado · abre mañana a las 12:00';
+  $$('[data-status]').forEach(s => { s.textContent = txt; s.classList.toggle('open', open); });
+
+  /* Nav sólida al bajar */
+  const nav = $('[data-nav]'); let last = 0;
+  addEventListener('scroll', () => { const y = scrollY; nav.classList.toggle('solid', y > 40); nav.classList.toggle('is-hidden', y > last && y > 500); last = y; }, { passive: true });
+
+  if (!window.gsap || reduce) { document.documentElement.classList.remove('js'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  if (fine && window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.08 }); lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+    $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const el = $(a.getAttribute('href')); if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -60 }); } }));
+  }
+  const split = el => {
+    el.setAttribute('aria-label', el.textContent.trim().replace(/\s+/g, ' '));
+    const walk = (node, out) => node.childNodes.forEach(c => {
+      if (c.nodeType === 3) c.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (!p.trim()) return out.append(' ');
+        const mk = document.createElement('span'); mk.className = 'w-mask'; mk.setAttribute('aria-hidden', 'true'); const w = document.createElement('span'); w.className = 'w'; w.textContent = p; mk.append(w); out.append(mk); });
+      else if (c.nodeType === 1) { const cl = c.cloneNode(false); walk(c, cl); out.append(cl); } });
+    const f = document.createDocumentFragment(); walk(el, f); el.textContent = ''; el.append(f);
+  };
+
+  /* HERO: las dos calles se encuentran en la esquina */
+  const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  tl.from('[data-hero-h]', { xPercent: -18, autoAlpha: 0, duration: 1.3 })
+    .from('[data-hero-v]', { yPercent: -40, autoAlpha: 0, duration: 1.3 }, '<.1')
+    .from('[data-rule]', { scaleX: 0, duration: 1.1, ease: 'power3.inOut' }, '<.3')
+    .from('[data-rule-v]', { scaleY: 0, duration: 1.1, ease: 'power3.inOut' }, '<')
+    .from('[data-hero-media]', { clipPath: 'inset(100% 0 0 0)', duration: 1.4, ease: 'power4.inOut' }, '<-.4')
+    .from('[data-hero-in]', { y: 24, autoAlpha: 0, duration: .9, stagger: .08, ease: 'power3.out' }, '-=.8');
+  gsap.to('[data-hero-media] .ph', { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  $$('[data-split]').forEach(el => { split(el); gsap.from(el.querySelectorAll('.w'), { yPercent: 115, duration: 1, stagger: .06, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 82%', once: true } }); });
+  ScrollTrigger.batch('[data-reveal]', { start: 'top 85%', once: true, onEnter: b => gsap.to(b, { opacity: 1, y: 0, duration: .9, stagger: .1, ease: 'power3.out' }) });
+
+  /* LA PIZARRA SE ESCRIBE (el wow): cada línea aparece como trazada con tiza */
+  gsap.to('.chalk', { clipPath: 'inset(0 0% 0 0)', duration: .9, ease: 'power2.inOut', stagger: .22,
+    scrollTrigger: { trigger: '[data-slate]', start: 'top 72%', once: true } });
+  gsap.from('[data-slate]', { rotate: -1.5, y: 40, autoAlpha: 0, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: '[data-slate]', start: 'top 85%', once: true } });
+
+  addEventListener('load', () => ScrollTrigger.refresh());
+  document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
