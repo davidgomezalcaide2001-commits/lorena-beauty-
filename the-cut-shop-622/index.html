@@ -164,7 +164,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 <nav class="nav" data-nav aria-label="Principal">
   <a class="nav__logo" href="#top">The Cut Shop <span>622</span></a>
   <div class="nav__links"><a href="#degradado">El estudio</a><a href="#servicios">Servicios</a><a href="#visita">Horario</a></div>
-  <a class="btn btn--sea" href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener">Reservar</a>
+  <a class="btn btn--sea" href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener" data-reservar>Reservar</a>
 </nav>
 
 <main id="main">
@@ -182,7 +182,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
     <div class="hero__row" data-hero-in>
       <p>Degradados limpios, cortes con criterio y barbas bien perfiladas, en pleno paseo de Rincón de la Victoria. Reserva en dos toques.</p>
       <div class="hero__ctas">
-        <a class="btn btn--sea" href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener">Reservar en Booksy</a>
+        <a class="btn btn--sea" href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener" data-reservar>Reservar en Booksy</a>
         <a class="btn btn--line" href="tel:+34671797718">671 79 77 18</a>
       </div>
     </div>
@@ -224,7 +224,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
       </ul>
       <div class="booksy" data-reveal>
         <p>Todos los servicios, precios y huecos libres, siempre actualizados en Booksy.</p>
-        <a class="btn btn--sea" href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener">Ver huecos libres</a>
+        <a class="btn btn--sea" href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener" data-reservar>Ver huecos libres</a>
       </div>
     </div>
   </div>
@@ -278,7 +278,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
   <div class="wrap">
     <p class="end__big">Te toca.</p>
     <div class="hero__ctas">
-      <a class="btn btn--sea" href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener">Reservar en Booksy</a>
+      <a class="btn btn--sea" href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener" data-reservar>Reservar en Booksy</a>
       <a class="btn btn--line" href="tel:+34671797718">Llamar</a>
     </div>
     <div class="end__foot">
@@ -290,7 +290,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 </footer>
 
 <nav class="mbar" aria-label="Acciones rápidas">
-  <a href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener">Reservar</a>
+  <a href="https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria" target="_blank" rel="noopener" data-reservar>Reservar</a>
   <a href="tel:+34671797718">Llamar</a>
   <a href="https://www.google.com/maps/search/?api=1&query=The+Cut+Shop+622+Av.+del+Mediterr%C3%A1neo+187+Rinc%C3%B3n+de+la+Victoria" target="_blank" rel="noopener">Llegar</a>
 </nav>
@@ -357,5 +357,22 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
   document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
 })();
 </script>
+<script>
+/* RESERVAS: canal "booksy". Si el negocio pasa su código de widget de Booksy, se puede incrustar el calendario dentro de la web. */
+window.MAREJADA_RESERVAS = {
+  negocio: "The Cut Shop 622", canal: "booksy", booksy: "https://booksy.com/es-es/187151_the-cut-shop-622_barberia_29417_rincon-de-la-victoria",
+  telefono: "+34671797718", telefonoTxt: "671 79 77 18", intervalo: 30, diasVista: 8,
+  horario: {1:[[600,810],[990,1230]],2:[[600,810],[990,1230]],3:[[600,810],[990,1230]],4:[[600,810],[990,1230]],5:[[600,810],[990,1230]],6:[[600,810]],0:[]},
+  aviso: "Al continuar se abre Booksy, donde la cita queda confirmada al momento.",
+  servicios: [
+    {id:"corte", nombre:"Corte", info:"Precio en Booksy", min:30},
+    {id:"degradado", nombre:"Degradado", info:"Precio en Booksy", min:30},
+    {id:"barba", nombre:"Arreglo de barba", info:"Precio en Booksy", min:30},
+    {id:"corte-barba", nombre:"Corte + barba", info:"Precio en Booksy", min:60}
+  ]
+};
+</script>
+<script src="reservas.js" defer></script>
+<style>:root{--mr-bg:#141618;--mr-fg:#f1f3f4;--mr-muted:rgba(241,243,244,.55);--mr-line:rgba(241,243,244,.12);--mr-card:#1d2023;--mr-accent:#2f6e9a;--mr-on-accent:#fff;--mr-r:10px;--mr-title:800 24px/1 "Syne",sans-serif}</style>
 </body>
 </html>

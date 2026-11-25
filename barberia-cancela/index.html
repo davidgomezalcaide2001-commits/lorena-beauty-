@@ -243,7 +243,7 @@ html:not(.js) .pre{display:none}
 
 <nav class="nav" data-nav aria-label="Principal">
   <a href="#servicios">Servicios</a><a href="#cita">Cómo pedir cita</a><a href="#visita">Horario</a>
-  <a class="nav__cta" href="tel:+34951254350">Pedir cita</a>
+  <a class="nav__cta" href="tel:+34951254350" data-reservar>Pedir cita</a>
 </nav>
 
 <main id="main">
@@ -255,7 +255,7 @@ html:not(.js) .pre{display:none}
       <p>Corte de caballero, barba y afeitado clásico en el centro de Rincón de la Victoria. Pasa, que está abierta.</p>
       <div class="hero__trust"><div class="hero__rate"><b>4,8</b><span>★★★★★<br>287 reseñas en Google</span></div><span class="status status--hero" data-status>Horario</span></div>
       <div class="hero__ctas">
-        <a class="btn btn--brass" href="tel:+34951254350" data-magnetic>Llamar y pedir cita <i aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a>
+        <a class="btn btn--brass" href="tel:+34951254350" data-reservar data-magnetic>Reservar cita <i aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a>
         <a class="btn btn--line" href="#visita">Horario y cómo llegar</a>
       </div>
     </div>
@@ -307,7 +307,7 @@ html:not(.js) .pre{display:none}
 <section class="how" id="cita" aria-labelledby="t-how">
   <div class="wrap">
     <div class="how__head"><div><p class="lbl">Pedir cita</p><h2 id="t-how" data-split style="margin-top:20px">Tres pasos, <span class="it">cero</span> líos.</h2></div>
-      <a class="btn btn--brass" href="tel:+34951254350">Llamar ahora <i aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a></div>
+      <a class="btn btn--brass" href="tel:+34951254350" data-reservar>Reservar cita <i aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></a></div>
     <ol class="how__steps">
       <li data-reveal><span class="how__n" aria-hidden="true">01</span><h3>Llama</h3><p>Al <a href="tel:+34951254350">951 25 43 50</a> en horario de apertura y te decimos qué huecos quedan.</p></li>
       <li data-reveal><span class="how__n" aria-hidden="true">02</span><h3>Elige</h3><p>Corte, barba, afeitado o el combo. Dinos qué buscas y te aconsejamos.</p></li>
@@ -389,7 +389,7 @@ html:not(.js) .pre{display:none}
 </footer>
 
 <nav class="mbar" aria-label="Acciones rápidas">
-  <a href="tel:+34951254350">Llamar</a>
+  <a href="tel:+34951254350" data-reservar>Reservar</a>
   <a href="#visita">Horario</a>
   <a href="https://www.google.com/maps/search/?api=1&query=Barber%C3%ADa+Cancela+Calle+Ronda+30+Rinc%C3%B3n+de+la+Victoria" target="_blank" rel="noopener">Cómo llegar</a>
 </nav>
@@ -544,5 +544,22 @@ html:not(.js) .pre{display:none}
   document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
 })();
 </script>
+<script>
+/* RESERVAS: canal "telefono" porque el negocio solo tiene fijo.
+   Para calendario real: crear evento en Cal.eu y cambiar a canal:"cal", cal:"marejada/barberia-cancela". */
+window.MAREJADA_RESERVAS = {
+  negocio: "Barbería Cancela", canal: "telefono", telefono: "+34951254350", telefonoTxt: "951 25 43 50",
+  intervalo: 30, diasVista: 8,
+  horario: {1:[[600,810],[990,1230]],2:[[600,810],[990,1230]],3:[[600,810],[990,1230]],4:[[600,810],[990,1230]],5:[[600,810],[990,1230]],6:[[600,810]],0:[]},
+  servicios: [
+    {id:"corte", nombre:"Corte de caballero", info:"Clásico o degradado", min:30},
+    {id:"barba", nombre:"Arreglo de barba", info:"Perfilado y contornos", min:30},
+    {id:"afeitado", nombre:"Ritual de afeitado", info:"Afeitado clásico a navaja", min:30},
+    {id:"corte-barba", nombre:"Corte + barba", info:"El combo completo", min:60}
+  ]
+};
+</script>
+<script src="reservas.js" defer></script>
+<style>:root{--mr-bg:#14120f;--mr-fg:#efe7d9;--mr-muted:rgba(239,231,217,.6);--mr-line:rgba(239,231,217,.14);--mr-card:#1d1a16;--mr-accent:#c19a55;--mr-on-accent:#0e0d0c;--mr-r:10px;--mr-title:800 26px/1 "Big Shoulders Display",sans-serif}</style>
 </body>
 </html>

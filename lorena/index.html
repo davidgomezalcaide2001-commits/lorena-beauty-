@@ -442,10 +442,10 @@ html:not(.js) .pre{display:none}
             <div><dt>Hora</dt><dd id="o-time">—</dd></div>
             <div><dt>Lugar</dt><dd>Calle Rda., 24</dd></div>
           </dl>
-          <a class="btn btn--solid" id="confirm" href="#" aria-disabled="true">Solicitar cita
+          <a class="btn btn--solid" id="confirm" href="#" aria-disabled="true">Enviar por WhatsApp
             <span class="btn__ico" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 12 12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></a>
           <p class="sum__ok" id="ok" role="status"></p>
-          <p class="sum__note">Demo visual: la cita se confirma por teléfono o WhatsApp hasta conectar el calendario real.</p>
+          <p class="sum__note">Tu solicitud llega por WhatsApp y Lorena te confirma la hora. También puedes llamar al 611 39 19 20.</p>
         </div></div>
       </aside>
     </div>
@@ -579,7 +579,13 @@ html:not(.js) .pre{display:none}
   btn.addEventListener('click', e => {
     e.preventDefault();
     if (btn.getAttribute('aria-disabled') === 'true') return;
-    ok.textContent = `Solicitud lista: ${$('#o-svc').textContent}, ${$('#o-day').textContent} a las ${$('#o-time').textContent}. Llama al 611 39 19 20 para confirmarla.`;
+    /* RESERVAS: la solicitud llega al WhatsApp de Lorena (confirmar que el 611 39 19 20 tiene WhatsApp) */
+    const msg = `Hola Lorena, quiero pedir cita:\n• Servicio: ${$('#o-svc').textContent}\n• Día: ${$('#o-day').textContent}\n• Hora: ${$('#o-time').textContent}\n(Enviado desde la web)`;
+    const url = 'https://wa.me/34611391920?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank', 'noopener');
+    ok.innerHTML = '';
+    ok.append('Se ha abierto WhatsApp con tu solicitud. Pulsa enviar y Lorena te confirma la hora. ');
+    const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = '¿No se abrió? Pulsa aquí'; a.style.color = 'inherit'; ok.append(a);
     ok.classList.add('show');
   });
 
