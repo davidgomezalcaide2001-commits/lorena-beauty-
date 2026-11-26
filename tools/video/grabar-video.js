@@ -33,17 +33,30 @@ p{margin:0;color:rgba(236,230,218,.65);font-size:${w > 700 ? 20 : 16}px}
 
 async function grabar(tipo) {
   const movil = tipo === 'movil';
-  const vw = movil ? 390 : 1440, vh = movil ? 844 : 900, dsf = movil ? 2 : 1;
+  // Móvil: 360×640 a densidad 3 = vídeo vertical 1080×1920 (9:16, pantalla completa en cualquier teléfono)
+  const vw = movil ? 360 : 1440, vh = movil ? 640 : 900, dsf = movil ? 3 : 1;
   const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'mrj-'));
   const browser = await chromium.launch();
+  // El grabador de Playwright no respeta la densidad de píxeles (deja la web en una esquina):
+  // en móvil se graba con el screencast de Chrome, que entrega los fotogramas a resolución real.
   const ctx = await browser.newContext({ viewport: { width: vw, height: vh }, deviceScaleFactor: dsf, isMobile: movil, hasTouch: movil,
-    recordVideo: { dir: tmp, size: { width: vw * dsf, height: vh * dsf } } });
+    ...(movil ? {} : { recordVideo: { dir: tmp, size: { width: vw, height: vh } } }) });
   await ctx.route('**/*', r => {
     const u = r.request().url(); const k = Object.keys(LIBS).find(k => u.endsWith(k));
     if (k) return r.fulfill({ path: path.join(NM, LIBS[k]), contentType: 'application/javascript' });
     return r.continue();
   });
   const page = await ctx.newPage();
+  const frames = []; let cdp = null;
+  if (movil) {
+    cdp = await ctx.newCDPSession(page);
+    cdp.on('Page.screencastFrame', f => {
+      const file = path.join(tmp, 'f' + String(frames.length).padStart(6, '0') + '.jpg');
+      fs.writeFileSync(file, Buffer.from(f.data, 'base64')); frames.push({ file, t: f.metadata.timestamp });
+      cdp.send('Page.screencastFrameAck', { sessionId: f.sessionId }).catch(() => {});
+    });
+    await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 92, maxWidth: vw * dsf, maxHeight: vh * dsf, everyNthFrame: 1 });
+  }
   const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
   // 1. portada
   await page.goto(card(`Una web para<br><em>${esc(negocio)}</em>`, 'Propuesta', vw, vh)); await page.waitForTimeout(2600);
@@ -75,9 +88,19 @@ async function grabar(tipo) {
   }
   // 5. cierre
   await page.goto(card(`${esc(negocio)}<br><em>ya online.</em>`, 'Web + ficha de Google · desde 50 €/mes', vw, vh)); await page.waitForTimeout(3200);
-  const v = page.video(); await ctx.close(); await browser.close();
-  const webm = await v.path(); const mp4 = `${out}-${movil ? 'movil' : 'escritorio'}.mp4`;
-  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', webm, '-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-r', '30', mp4]);
+  const mp4 = `${out}-${movil ? 'movil' : 'escritorio'}.mp4`;
+  if (movil) {
+    await cdp.send('Page.stopScreencast').catch(() => {}); await ctx.close(); await browser.close();
+    // cada fotograma dura hasta el siguiente (Chrome solo manda fotogramas cuando algo cambia)
+    const lines = [];
+    frames.forEach((f, i) => { const d = i < frames.length - 1 ? Math.max(0.001, frames[i + 1].t - f.t) : 0.5; lines.push(`file '${f.file}'`, `duration ${d.toFixed(4)}`); });
+    lines.push(`file '${frames[frames.length - 1].file}'`);
+    const list = path.join(tmp, 'list.txt'); fs.writeFileSync(list, lines.join('\n'));
+    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', list, '-vf', `fps=30,scale=${vw * dsf}:${vh * dsf}:flags=lanczos,format=yuv420p`, '-c:v', 'libx264', '-preset', 'slow', '-crf', '19', '-movflags', '+faststart', mp4]);
+  } else {
+    const v = page.video(); await ctx.close(); await browser.close();
+    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', await v.path(), '-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-r', '30', mp4]);
+  }
   fs.rmSync(tmp, { recursive: true, force: true });
   console.log('vídeo:', mp4, (fs.statSync(mp4).size / 1048576).toFixed(1) + ' MB');
 }
