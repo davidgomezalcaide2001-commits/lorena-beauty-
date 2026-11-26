@@ -29,7 +29,7 @@ p{margin:0;color:rgba(236,230,218,.65);font-size:${w > 700 ? 20 : 16}px}
 .w svg{display:block}
 @keyframes in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}</style></head>
 <body><div class="c"><span class="k">${sub}</span><h1>${titulo}</h1></div>
-<div class="w"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d9b37a" stroke-width="2" stroke-linecap="round"><path d="M2 14c3-4 5-4 8 0s5 4 8 0 3-3 4-2"/></svg>Marejada Estudio · Rincón de la Victoria</div></body></html>`);
+<div class="w"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d9b37a" stroke-width="2" stroke-linecap="round"><path d="M2 14c3-4 5-4 8 0s5 4 8 0 3-3 4-2"/></svg>Marejada Estudio · Rincón de la Victoria</div><i id="r" style="position:fixed;left:0;top:0;width:2px;height:2px;opacity:.02;background:#fff"></i><script>let k=0;(function f(){document.getElementById("r").style.transform="translateX("+(k++%2)+"px)";requestAnimationFrame(f)})()</script></body></html>`);
 
 async function grabar(tipo) {
   const movil = tipo === 'movil';
