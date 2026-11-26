@@ -37,6 +37,8 @@ Carga y sigue, en este orden: `demo-web-negocio-local`, `direccion-creativa-awww
 3. `update_project` con `ssoProtection: {deploymentType: "preview"}` para que el enlace principal sea público (las versiones de prueba siguen protegidas).
 4. Comprueba con `get_deployment` que está READY y anota la URL `https://<slug>.vercel.app`.
 
+**Si la sesión no tiene las herramientas de Vercel** (`mcp__Vercel__*`): haz igualmente el commit y el push, graba el vídeo desde el archivo local y entrega todo a David. Dile en una línea que falta publicar `<slug>` en Vercel y que basta con pedirlo en cualquier sesión que tenga el conector.
+
 ## 5. Vídeo de presentación
 ```bash
 node tools/video/grabar-video.js <slug>/index.html <scratchpad>/videos/<slug> "<Nombre del negocio>" ambos
