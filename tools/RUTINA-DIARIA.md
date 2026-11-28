@@ -47,7 +47,19 @@ Genera `<slug>-movil.mp4` (vertical, para WhatsApp) y `<slug>-escritorio.mp4`. R
 
 ## 6. Panel y entrega a David
 1. Añade el negocio a `negocios` en el panel: `estado: "demo"`, `demo` con la URL, `siguiente: "Enviar vídeo por WhatsApp/Instagram"`, `fecha` = hoy, y en notas el resumen del estudio.
-2. Envía a David con SendUserFile los dos vídeos y el informe (`status: "proactive"`).
-3. Mensaje final corto: negocio y por qué, enlace a la web, el mensaje listo para copiar y lo que falta confirmar con el negocio.
+2. Envía a David con SendUserFile **solo el vídeo vertical** (`<slug>-movil.mp4`, `status: "proactive"`). El informe y el vídeo de escritorio se quedan en el repositorio.
+3. **Mensaje final: exactamente este formato, sin nada más** (David no quiere leer, quiere hacer clic):
+
+```
+**Toma, David.**
+
+**<Nombre del negocio>** · <tipo> · <nota>★ · sin web
+📎 Vídeo arriba
+👉 [Abrir WhatsApp con el mensaje](https://wa.me/34XXXXXXXXX?text=<mensaje codificado con la URL de la web>)
+
+Si no hay móvil: 👉 [Abrir su Instagram/Facebook](<url>) y pega esto:
+> <mensaje>
+```
+Reglas del mensaje al negocio: 3 frases como máximo, de tú a tú, una cosa concreta suya (su nota, su especialidad), el enlace de la web y «Sin compromiso». Si no tiene ni móvil ni redes, una sola línea: «Llama al <teléfono> y pídele un WhatsApp para mandarle el vídeo».
 
 Si algo falla (Vercel, GitHub, búsqueda), entrega igualmente lo que esté hecho y di exactamente qué falta.
